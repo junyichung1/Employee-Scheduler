@@ -1,13 +1,11 @@
 var mongoose = require('mongoose');
 
-const playerSchema = new mongoose.Schema ({
-    position: String
-})
 
 const userSchema = new mongoose.Schema ({
-    teamName: String,
-    players: [playerSchema],
-    googleId: String
+    name: {type: String},
+    department: {type: String},
+    email: {type: String},
+    googleId: {type: String}
 }, {
     timestamps: true
 });

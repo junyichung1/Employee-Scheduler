@@ -1,15 +1,20 @@
 <%- include('../partials/header') %>
 
-<a href="" class="brand-logo left">Employee Scheduler</a>
-<!-- Add login UI here -->
-<ul class="right">
-	<li>
-	<% if (user) { %>
-		<a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-	<% } else { %>
-		<a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-	<% } %>
-	</li>
-</ul>
-
+<h3>Please fill out or update below information:</h3>
+<form action="/users" method=POST>
+<label for="name">Name:
+	<input type="text" name="name" value="<%= user.name %>">
+</label>
+<br>
+<label for="department">Department:
+	<input type="text" name="department" value="<%= user.department %>">
+</label>
+<br>
+<label for="email">Email Address:
+	<input type="text" name="email" value="<%= user.email %>">
+</label>
+<br>
+<br>
+<input type="submit" value="Update">
+</form>
 <%- include('../partials/footer') %>
