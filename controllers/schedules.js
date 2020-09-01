@@ -3,14 +3,14 @@ const Schedule = require('../models/schedule')
 
 module.exports = {
     index,
-    new: newSchedule
-}
-
-function newSchedule(req, res) {
     
 }
+
+
+
 function index(req, res) {
-    Schedule.find({}, function(err) {
-    res.render("schedules/index", { title: "Schedule" });
+    Schedule.find({user: req.params._id}, function(err, schedule) {
+        console.log(schedule);
+    res.render("schedules/index", { title: "Schedule", schedule, user: req.user});
 })
 }

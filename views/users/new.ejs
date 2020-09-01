@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<h3>Possible Shifts</h3>
+
+<form action="">
+<% shifts.times.forEach(function(shift) { %>
+    <p><%= `${shift.startTime} - ${shift.endTime}` %></p>
+<p>hello</p>
+<% }) %>
+</form>
+
+<form action="/users" method=POST>
+    <label for="date">Start:
+        <input type="time" name="startTime">
+    </label>
+    
+    <label for="date">End:
+        <input type="time" name="endTime">
+    </label>
+    <input type="submit" value="Submit">
+</form>
+
+
+<%- include('../partials/footer') %>

@@ -1,20 +1,23 @@
 <%- include('../partials/header') %>
 
 <h3>Please fill out or update below information:</h3>
-<form action="/users" method=POST>
-<label for="name">Name:
-	<input type="text" name="name" value="<%= user.name %>">
-</label>
-<br>
-<label for="department">Department:
-	<input type="text" name="department" value="<%= user.department %>">
-</label>
-<br>
-<label for="email">Email Address:
-	<input type="text" name="email" value="<%= user.email %>">
-</label>
-<br>
-<br>
-<input type="submit" value="Update">
+<form action="/users/<%= user._id %>?_method=PUT" method="POST">
+  <label for="name"
+    >Name:
+    <input type="text" name="name" value="<%= user.name %>" />
+  </label>
+  <br />
+  <label for="department"
+    >Department:
+    <input type="text" name="department" value="<%= user.department %>" />
+  </label>
+  <br />
+  <label for="email"
+    >Email Address:
+    <input type="text" name="email" value="<%= user.email %>" />
+  </label>
+  <br />
+  <br />
+  <input type="submit" value="Update" />
 </form>
 <%- include('../partials/footer') %>

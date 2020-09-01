@@ -17,25 +17,37 @@
     </tr>
 
     <tr>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
+        
+            
+            <td>Junyi</td>
+            <td>shift</td>
+            <td>shift</td>
+            <td>shift</td>
+            <td>shift</td>
+            <td>shift</td>
+            <td>shift</td>
+            <td>shift</td>
+       
         
     <tr>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
-        <td>example</td>
+        <td>Tom</td>
+        <td>shift</td>
+        <td>shift</td>
+        <td>shift</td>
+        <td>shift</td>
+        <td>shift</td>
+        <td>shift</td>
+        <td>shift</td>
     </tr>
+
 </table>
+<form action="">
+    <select name="" id="">
+        <% user.times.forEach(time => { %>
+            <option value="<%= `${time.startTime} - ${time.endTime}`%>"><%= `${time.startTime} - ${time.endTime}`%></option>
+       <% }) %>
+    </select>
+</form>
+
 
 <%- include('../partials/footer') %>

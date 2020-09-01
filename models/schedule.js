@@ -1,13 +1,15 @@
 var mongoose = require('mongoose');
 
 const shiftSchema = new mongoose.Schema ({
-    times: String,
-    hours: Number
+    startTime: Date,
+    endTime: Date,
+    hours: {type: Number}
+    
 })
 const scheduleSchema = new mongoose.Schema ({
-    shifts: [shiftSchema], //array of object. need to be embedded?
+    shift: [shiftSchema], //array of object. need to be embedded?
     employee: [{type: mongoose.Schema.Types.ObjectId, ref: 'Employee'}],
-    users: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 }, {
     timestamps: true
 });
