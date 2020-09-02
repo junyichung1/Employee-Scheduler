@@ -10,8 +10,8 @@ module.exports = {
     create
     
 }
-function addEmployee(req, res) {
-    Employee.findById(req.body.employee, function(err, employee) {
+function addEmployee() {
+    
     const times = []
     req.body.shifts.forEach(shift => {
         let obj = {};
@@ -34,19 +34,20 @@ function addEmployee(req, res) {
             }
         times.push(obj)
         })
-        console.loog(times)
-    })
+        console.log(times)
 }
+
 function create(req, res) { 
-        addEmployee();
-        const newSchedule = new Schedule()
+    Employee.findById(req.body.employee, addEmployee(err, employee) {
+        const newSchedule = new Schedule();
         newSchedule.shifts.push(times);
         newSchedule.user = req.user._id;
         newSchedule.save(function (err) {
         //     console.log(newSchedule);
             res.redirect('/schedules')
         })
-    }
+    })
+}
 
 function newSchedule(req, res) {
     Employee.find({}, function(err, employees) {
