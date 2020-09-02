@@ -5,8 +5,16 @@ const { route } = require('.');
 
 
 /* GET users listing. */
-router.get('/', usersCtrl.index);
-router.put('/:id', usersCtrl.update);
+router.get('/', isLoggedIn, usersCtrl.index);
+router.put('/:id', isLoggedIn, usersCtrl.update);
 
+function isLoggedIn(req, res, next) {
+    if ( req.isAuthenticated() ) {
+        res.locals.userID = req.user._id;
+        return next();
+    } else {
+        res.redirect('/auth/google')
+    }
+}
 
 module.exports = router;

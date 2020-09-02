@@ -1,10 +1,13 @@
 <%- include('../partials/header') %>
 
-<h3>Possible Shifts</h3>
+<h3>Possible Shifts (Input blank times for "OFF")</h3>
 
 <% shifts.forEach(function(shift) { %>
     <ul>
-        <li><%= `${shift.startTime} - ${shift.endTime}` %></li>
+        <li><%= `${shift.startTime} - ${shift.endTime}` %>
+            <a href="/shifts/<%=shift._id%>/edit"><button>Edit</button></a>
+            <form action="/shifts/<%=shift._id%>?_method=DELETE" method="POST"><button type="submit">X</button></form>
+        </li>
     </ul>
 
 <% }) %>

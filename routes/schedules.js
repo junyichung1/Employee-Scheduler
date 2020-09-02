@@ -6,12 +6,16 @@ router.get('/', isLoggedIn, schedulesCtrl.index);
 // router.get('/new', schedulesCtrl.new);
 // router.post('/', schedulesCtrl.create);
 
-router.get('/new', schedulesCtrl.new);
-router.post('/', schedulesCtrl.create);
+router.get('/new', isLoggedIn, schedulesCtrl.new);
+router.post('/', isLoggedIn, schedulesCtrl.create);
 
 function isLoggedIn(req, res, next) {
-    if ( req.isAuthenticated() ) return next();
-    res.redirect('/auth/google')
+    if ( req.isAuthenticated() ) {
+        res.locals.userID = req.user._id;
+        return next();
+    } else {
+        res.redirect('/auth/google')
+    }
 }
 
 module.exports = router;
