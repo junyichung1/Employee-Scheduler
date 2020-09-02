@@ -8,17 +8,54 @@ module.exports = {
     index,
     // new: newSchedule,
     create,
-    show
+    show,
+    update
     
 }
+function update(req, res) {
+    Schedule.findById(req.params.id, function(err, schedule) {
+        Employee.findById(req.body.employee, function(err, employee) {
+            const times = []
+            req.body.shifts.forEach(shift => {
+            let obj = {};
+            obj.employeeId = employee._id;
+            obj.employeeName = employee.name;
+            obj.wage = employee.wage;
+            if (shift === " - ") {
+                obj.startTime = null;
+                obj.endTime = null;
+                obj.hours = 0;
+            } else {
+                obj.startTime = shift.substring(0, 6);
+                obj.endTime = shift.substring(8, 13);
+                const start = moment(obj.startTime, 'HH:mm');
+                const end = moment(obj.endTime, 'HH:mm');
+                let hours = moment.duration(end.diff(start)).asHours();
+                    if (hours < 0) hours = 24 + hours;    
+                    obj.hours = hours
+                }
+                times.push(obj)
+            })
+            schedule.shifts.push(times)
+            schedule.save(function(err) {
+                res.redirect(`/schedules/${schedule._id}`)
+            })
+        })
+    })
+};
+
 function show(req, res) {
     console.log(`TITs`)
-    Schedule.findById(req.params.id, function(err, schedules) {
-        if (err) console.log(err)
-        console.log(`helllo0o0o0`, schedules)
-        res.render('schedules/show', {title: 'Schedulizer', schedules})
-    });
+    Schedule.findById(req.params.id, function(err, schedule) {
+        Shift.find({}, function(err, shifts) {
+            Employee.find({}, function(err, employees) {
+                res.render('schedules/show', {title: 'Schedulizer', schedule, employees, shifts}) //shifts: req.body.shifts})
+        })
+
+        })
+    })
 }
+    // 
 
 function create(req, res) { 
     // console.log(req.body)

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const schedulesCtrl = require('../controllers/schedules')
+const schedulesCtrl = require('../controllers/schedules');
+const { route } = require('.');
 
 router.get('/', isLoggedIn, schedulesCtrl.index);
 // router.get('/new', schedulesCtrl.new);
@@ -9,6 +10,7 @@ router.get('/', isLoggedIn, schedulesCtrl.index);
 // router.get('/new', isLoggedIn, schedulesCtrl.new);
 router.post('/', isLoggedIn, schedulesCtrl.create);
 router.get('/:id', schedulesCtrl.show);
+router.put('/:id', schedulesCtrl.update);
 
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) {

@@ -13,39 +13,26 @@
         <th>Saturday</th>
     </tr>
 
-    <tr>
-        
-<% schedules.forEach(schedule => { %>
-<td>
-    <%= schedule.employeeName %>  
-</td>    
-<td>
-    <%= `${schedule.startTime} - ${schedule.endTime}` %>
-</td>    
-<td>
-    <%= `${schedule.startTime} - ${schedule.endTime}` %>
-</td>  
-<td>
-    <%= `${schedule.startTime} - ${schedule.endTime}` %>
-</td>     
-<td>
-    <%= `${schedule.startTime} - ${schedule.endTime}` %>
-</td>  
-<td>
-    <%= `${schedule.startTime} - ${schedule.endTime}` %> 
-</td>  
-<td>
-    <%= `${schedule.startTime} - ${schedule.endTime}` %> 
-</td>  
-<td>
-    <%= `${schedule.startTime} - ${schedule.endTime}` %>
-</td>  
-<% }) %>  
-
-    </tr>
+    
+    <% schedule.shifts.forEach(shift => { %>
+        <tr>
+            <td>
+                <%= shift[0].employeeName %>  
+            </td>    
+        <% shift.forEach(schedule => { %>
+            <td>
+                <% if (!schedule.startTime) { %>
+                    <%= 'OFF' %>
+               <% } else { %>
+                    <%= `${schedule.startTime} - ${schedule.endTime}` %>
+                <% } %>
+            </td>    
+            <% }) %>
+        </tr>
+    <% }) %>
 
     <tr>
-        <form action="/schedules" method=POST>
+        <form action="/schedules/<%=schedule._id%>?_method=PUT" method=POST>
         <td>
             <label>
             <select name="employee">
@@ -94,6 +81,7 @@
                     <td>
                         <input type="submit" value="Submit Employee">
                     </td>
+                     
 
                 </form>
     </tr>
