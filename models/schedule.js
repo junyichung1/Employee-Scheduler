@@ -2,8 +2,7 @@ var mongoose = require('mongoose');
 
 
 const scheduleSchema = new mongoose.Schema ({
-    shift: [{type: mongoose.Schema.Types.ObjectId, ref: 'Shift'}], //array of object. need to be embedded?
-    employee: [{type: mongoose.Schema.Types.ObjectId, ref: 'Employee'}],
+    shifts: [], //array of object. need to be embedded?
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 }, {
     timestamps: true
