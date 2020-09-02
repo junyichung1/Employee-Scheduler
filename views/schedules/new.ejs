@@ -1,0 +1,122 @@
+<%- include('../partials/header') %>
+
+<h3>Week:</h3>
+<table>
+    <tr>
+        <th>Employee</th>
+        <th>Sunday</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+    </tr>
+
+    <tr>
+        
+    <td>
+        
+                <% employees.forEach(employee => { %>
+                    <%= employee.name %>
+                <% }) %>  
+              
+    </td>    
+    <td>
+        <% shifts.forEach(shift => { %>
+            <%= `${shift.startTime} - ${shift.endTime}` %>
+            <% }) %>
+    </td>    
+    <td>
+        <% shifts.forEach(shift => { %>
+            <%= `${shift.startTime} - ${shift.endTime}` %>
+            <% }) %>
+    </td>  
+    <td>
+        <% shifts.forEach(shift => { %>
+            <%= `${shift.startTime} - ${shift.endTime}` %>
+            <% }) %>
+    </td>     
+    <td>
+        <% shifts.forEach(shift => { %>
+            <%= `${shift.startTime} - ${shift.endTime}` %>
+            <% }) %>
+    </td>  
+    <td>
+        <% shifts.forEach(shift => { %>
+            <%= `${shift.startTime} - ${shift.endTime}` %>
+            <% }) %>
+    </td>  
+    <td>
+        <% shifts.forEach(shift => { %>
+            <%= `${shift.startTime} - ${shift.endTime}` %>
+            <% }) %>
+    </td>  
+    <td>
+        <% shifts.forEach(shift => { %>
+            <%= `${shift.startTime} - ${shift.endTime}` %>
+            <% }) %>
+    </td>  
+        
+    </tr>
+
+    <tr>
+        <form action="/schedules" method=POST>
+        <td>
+            <label>
+            <select name="employee">
+                <% employees.forEach(employee => { %>
+                    <option value=""><%= employee.name %></option>
+                <% }) %>  
+              </select>
+            </td>
+            <td>
+                <select name="shift">
+                    <% shifts.forEach(shift => { %>
+                        <option value=""><%= `${shift.startTime} - ${shift.endTime}` %> </option>
+                        <% }) %>
+                    </select>
+                </td>
+                <td><select name="shift">
+                    <% shifts.forEach(shift => { %>
+                        <option value=""><%= `${shift.startTime} - ${shift.endTime}` %> </option>
+                        <% }) %>
+                    </select></td>
+                <td><select name="shift">
+                    <% shifts.forEach(shift => { %>
+                        <option value=""><%= `${shift.startTime} - ${shift.endTime}` %> </option>
+                        <% }) %>
+                    </select></td>
+                <td><select name="shift">
+                    <% shifts.forEach(shift => { %>
+                        <option value=""><%= `${shift.startTime} - ${shift.endTime}` %> </option>
+                        <% }) %>
+                    </select></td>
+                <td><select name="shift">
+                    <% shifts.forEach(shift => { %>
+                        <option value=""><%= `${shift.startTime} - ${shift.endTime}` %> </option>
+                        <% }) %>
+                    </select></td>
+                <td><select name="shift">
+                    <% shifts.forEach(shift => { %>
+                        <option value=""><%= `${shift.startTime} - ${shift.endTime}` %> </option>
+                        <% }) %>
+                    </select></td>
+                <td><select name="shift">
+                    <% shifts.forEach(shift => { %>
+                        <option value=""><%= `${shift.startTime} - ${shift.endTime}` %> </option>
+                        <% }) %>
+                    </select></td>
+                    <td>
+                        <input type="submit" value="Submit Employee">
+                    </td>
+
+                </form>
+    </tr>
+
+    
+    
+</table>
+
+
+<%- include('../partials/footer') %>

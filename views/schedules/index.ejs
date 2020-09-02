@@ -43,11 +43,12 @@
 </table>
 <form action="">
     <select name="" id="">
-        <% user.times.forEach(time => { %>
-            <option value="<%= `${time.startTime} - ${time.endTime}`%>"><%= `${time.startTime} - ${time.endTime}`%></option>
+        <% shifts.forEach(shift => { %>
+            <option value="<%= `${shift.startTime} - ${shift.endTime}`%>"><%= `${shift.startTime} - ${shift.endTime}`%></option>
        <% }) %>
     </select>
 </form>
+
 
 
 <%- include('../partials/footer') %>

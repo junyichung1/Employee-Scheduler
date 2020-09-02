@@ -7,15 +7,15 @@ new: newEmployee,
 create
 }
 function create(req, res) {
-    
     const addedEmployee = new Employee(req.body);
     addedEmployee.save(function(err, employee) {
         console.log(employee)
-        res.render('employees/new', {title: 'Add Employees', addedEmployee})
+        res.redirect('/employees/new')
     })
 }
 
 function newEmployee(req, res) {
-    let addedEmployee = new Employee(req.body)
-    res.render('employees/new', {title: 'Add Employees', addedEmployee})
+    Employee.find({}, function(err, employees){
+        res.render('employees/new', {title: 'Add Employees', employees})
+    })
 }

@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
 <h3>Employees</h3>
+<div class="employeebox">
 <table>
     <tr>
         <th>Name</th>
@@ -8,14 +9,18 @@
         <th>Wage</th>
     </tr>
     <tr>
-        
-            <td><%= addedEmployee.name %></td>
-            <td><%= addedEmployee.position %></td>
-            <td><%= addedEmployee.wage %></td>
-       
-    </tr>
+      
+        <% employees.forEach(function(employee){ %>
 
-</table>
+          <td><%= employee.name %></td>
+          <td><%= employee.position %></td>
+          <td><%= employee.wage %></td>
+        <% }) %>
+        
+      </tr>
+      
+    </table>
+  </div>
 <form action="/employees" method=POST>
 <label for="name">Name
     <input name="name" type="text">
