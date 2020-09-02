@@ -6,8 +6,9 @@ router.get('/', isLoggedIn, schedulesCtrl.index);
 // router.get('/new', schedulesCtrl.new);
 // router.post('/', schedulesCtrl.create);
 
-router.get('/new', isLoggedIn, schedulesCtrl.new);
+// router.get('/new', isLoggedIn, schedulesCtrl.new);
 router.post('/', isLoggedIn, schedulesCtrl.create);
+router.get('/:id', schedulesCtrl.show);
 
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) {

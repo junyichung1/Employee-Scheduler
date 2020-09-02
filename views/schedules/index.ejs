@@ -1,47 +1,34 @@
 <%- include('../partials/header') %>
-<div>
-    <h4>Department: </h4>
-    <h4>Week:</h4>
-</div>
 
 <table>
     <tr>
-        <th>Employee</th>
-        <th>Sunday</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-        <th>Saturday</th>
-    </tr>
+        <th>Week (Choose start of week)</th>
 
+    </tr>
+    <br>
+    <% schedules.forEach(schedule => { %>
+        <tr>
+            <td>
+                <%=schedule.week %>
+            </td>
+                <td><a href="/schedules/<%=schedule._id%>">Create/Edit</a></td>
+        </tr>
+        <% }) %>
     <tr>
-        
-            
-            <td>Junyi</td>
-            <td>shift</td>
-            <td>shift</td>
-            <td>shift</td>
-            <td>shift</td>
-            <td>shift</td>
-            <td>shift</td>
-            <td>shift</td>
        
-        
-    <tr>
-        <td>Tom</td>
-        <td>shift</td>
-        <td>shift</td>
-        <td>shift</td>
-        <td>shift</td>
-        <td>shift</td>
-        <td>shift</td>
-        <td>shift</td>
+        <form action="/schedules" method="POST">
+        <td> 
+                <label for="date">Start:
+                    <input type="date" name="week">
+                </label>
+            </td>
+            <td>
+                <input type="submit" value="Submit">
+            </td>      
+        </form>
     </tr>
-
+    
 </table>
-
 
 
 
