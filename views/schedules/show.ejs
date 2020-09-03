@@ -11,14 +11,18 @@
         <th>Thursday</th>
         <th>Friday</th>
         <th>Saturday</th>
+        <th>Labor</th>
+        <th>Delete</th>
     </tr>
 
     
     <% schedule.shifts.forEach(shift => { %>
         <tr>
+            
             <td>
-                <%= shift[0].employeeName %>  
-            </td>    
+               <%= shift[0].employeeName %>
+            </td>
+        
         <% shift.forEach(schedule => { %>
             <td>
                 <% if (!schedule.startTime) { %>
@@ -28,17 +32,27 @@
                 <% } %>
             </td>    
             <% }) %>
+            <td>
+                <% schedule.shifts.forEach(shift => { %>
+                    <% shift.forEach(schedule => {%>
+                       <% let total = 0 %>
+                       <% total += schedule.wage * schedule.hours %>
+                        <%= total %>
+                   <% }) %>
+               <% }) %>
+                
+            </td>
+            <td><form action="/schedulize/<%=schedule._id%>?_method=DELETE" method=POST><button>X</button></form></td>
         </tr>
+        <br>
     <% }) %>
 
     <tr>
-        <form action="/schedules/<%=schedule._id%>?_method=PUT" method=POST>
+        <form action="/schedulize/<%=schedule._id%>?_method=PUT" method=POST>
         <td>
             <label>
             <select name="employee">
-                <% employees.forEach(employee => { %>
-                    <option value="<%= employee._id %>"><%= employee.name %></option>
-                <% }) %>  
+                <%- employees.map(employee => `<option value="${employee._id}">${employee.name}</option>`).join('') %>  
               </select>
             </td>
             <td>
@@ -81,9 +95,11 @@
                     <td>
                         <input type="submit" value="Submit Employee">
                     </td>
-                     
-
                 </form>
+                     <td>
+                         <a href="/schedules"><button type="submit">Back</button></a>
+                     </td>
+
     </tr>
 
     

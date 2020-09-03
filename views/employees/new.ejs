@@ -8,17 +8,17 @@
         <th>Position</th>
         <th>Wage</th>
     </tr>
-    <tr>
-      
-        <% employees.forEach(function(employee){ %>
+    
+    <% employees.forEach(function(employee){ %>
+      <tr>
 
           <td><%= employee.name %></td>
           <td><%= employee.position %></td>
           <td>$<%= employee.wage %></td>
           <td><a href="/employees/<%= employee._id %>/edit"><button>Edit</button></a></td>
           <td><form action="/employees/<%=employee.id%>?_method=DELETE" method="POST"><button type="submit">X</button></form></td>
+        </tr>
         <% }) %>
-      </tr>
       
     </table>
   </div>

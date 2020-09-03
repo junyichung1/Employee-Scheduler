@@ -3,14 +3,12 @@ var router = express.Router();
 const schedulesCtrl = require('../controllers/schedules');
 const { route } = require('.');
 
-router.get('/', isLoggedIn, schedulesCtrl.index);
-// router.get('/new', schedulesCtrl.new);
-// router.post('/', schedulesCtrl.create);
-
-// router.get('/new', isLoggedIn, schedulesCtrl.new);
-router.post('/', isLoggedIn, schedulesCtrl.create);
-router.get('/:id', schedulesCtrl.show);
-router.put('/:id', schedulesCtrl.update);
+router.get('/schedules', isLoggedIn, schedulesCtrl.index);
+router.post('/schedules', isLoggedIn, schedulesCtrl.create);
+router.get('/schedulize/:id', schedulesCtrl.show);
+router.put('/schedulize/:id', schedulesCtrl.update);
+// router.delete('/schedulize/:id', schedulesCtrl.deleteShift);
+router.delete('/schedules/:id', schedulesCtrl.deleteSchedule);
 
 function isLoggedIn(req, res, next) {
     if ( req.isAuthenticated() ) {

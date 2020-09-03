@@ -9,9 +9,11 @@
     <% schedules.forEach(schedule => { %>
         <tr>
             <td>
-                <%=schedule.week %>
+                
+                <%= schedule.week %>
             </td>
-                <td><a href="/schedules/<%=schedule._id%>">Create/Edit</a></td>
+                <td><a href="/schedulize/<%=schedule._id%>">Create/Edit</a></td>
+                <td><form action="/schedules/<%=schedule._id%>?_method=DELETE" method=POST><button>X</button></form></td>
         </tr>
         <% }) %>
     <tr>
