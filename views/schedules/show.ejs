@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
-<h3>Week:</h3>
-<table>
+<h3>Week: <%= schedule.week%></h3>
+<table class="table">
     <tr>
         <th>Employee</th>
         <th>Sunday</th>
@@ -12,19 +12,20 @@
         <th>Friday</th>
         <th>Saturday</th>
         <th>Labor</th>
-        <th>Delete</th>
+        <th>Hours</th>
+        <th></th>
     </tr>
-
     
-    <% schedule.shifts.forEach(shift => { %>
+    <% let max = 0 %>
+    <% schedule.shifts.forEach((shift,idx) => { %>
         <tr>
             
-            <td>
+            <td class="border">
                <%= shift[0].employeeName %>
             </td>
         
         <% shift.forEach(schedule => { %>
-            <td>
+            <td class="border">
                 <% if (!schedule.startTime) { %>
                     <%= 'OFF' %>
                <% } else { %>
@@ -32,21 +33,38 @@
                 <% } %>
             </td>    
             <% }) %>
-            <td>
-                <% schedule.shifts.forEach(shift => { %>
-                    <% shift.forEach(schedule => {%>
-                       <% let total = 0 %>
+            <td class="border">
+                <% let totalHours = 0 %>
+                    <% let total = 0 %>
+                    <% schedule.shifts[idx].forEach(schedule => {%>
                        <% total += schedule.wage * schedule.hours %>
-                        <%= total %>
-                   <% }) %>
-               <% }) %>
+                       <% totalHours += schedule.hours %>
+                       <% }) %>
+                       <% max += total %>
+                       <%= `$${total.toFixed(2)} `%>
+            </td>
+            <td class="border <%= totalHours > 40 ? 'active' : '' %>">
+                <%= totalHours %>
                 
             </td>
-            <td><form action="/schedulize/<%=schedule._id%>?_method=DELETE" method=POST><button>X</button></form></td>
+            <td><form action="/schedulize/<%=schedule._id%>/employee/<%=idx%>?_method=DELETE" method=POST><button>X</button></form></td>
+        </tr>
+        <% }) %>
+        <tr>
+            <td class="border">Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="border">
+                <%= `$${max.toFixed(2)} ` %>
+                </td>
         </tr>
         <br>
-    <% }) %>
-
+<% if (employees.length) {%>
     <tr>
         <form action="/schedulize/<%=schedule._id%>?_method=PUT" method=POST>
         <td>
@@ -102,6 +120,8 @@
 
     </tr>
 
+
+ <% } %>
     
     
 </table>

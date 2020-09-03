@@ -7,7 +7,7 @@ router.get('/schedules', isLoggedIn, schedulesCtrl.index);
 router.post('/schedules', isLoggedIn, schedulesCtrl.create);
 router.get('/schedulize/:id', schedulesCtrl.show);
 router.put('/schedulize/:id', schedulesCtrl.update);
-// router.delete('/schedulize/:id', schedulesCtrl.deleteShift);
+router.delete('/schedulize/:id/employee/:emp', schedulesCtrl.deleteShift);
 router.delete('/schedules/:id', schedulesCtrl.deleteSchedule);
 
 function isLoggedIn(req, res, next) {

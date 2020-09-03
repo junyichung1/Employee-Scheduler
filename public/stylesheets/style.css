@@ -1,6 +1,26 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Cinzel', serif;
+  background-color: #D6E9F2;
+}
+.table {
+  /* border-collapse: collapse;
+  border: 2.5px solid #023499; */
+}
+table th {
+  border: 2.5px solid #023499;
+}
+.border {
+  border: 2.5px solid #023499;
+}
+.active {
+  color: red;
+}
+.title {
+  text-align: center;
+}
+h4 {
+  text-align: center;
 }
 
 a {
@@ -25,7 +45,20 @@ a {
   color: rgb(15, 15, 15);
 }
 .employeebox {
+
+}
+.footer {
+  
+  
+}
+#footerbar {
   display: flex;
-  background-color: green;
-  height: 800px;
+  background-color: #CCFFCB;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
 }

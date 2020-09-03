@@ -2,7 +2,7 @@
 
 <h3>Employees</h3>
 <div class="employeebox">
-<table>
+<table class="table">
     <tr>
         <th>Name</th>
         <th>Position</th>
@@ -12,9 +12,9 @@
     <% employees.forEach(function(employee){ %>
       <tr>
 
-          <td><%= employee.name %></td>
-          <td><%= employee.position %></td>
-          <td>$<%= employee.wage %></td>
+          <td class="border"><%= employee.name %></td>
+          <td class="border"><%= employee.position %></td>
+          <td class="border">$<%= employee.wage %></td>
           <td><a href="/employees/<%= employee._id %>/edit"><button>Edit</button></a></td>
           <td><form action="/employees/<%=employee.id%>?_method=DELETE" method="POST"><button type="submit">X</button></form></td>
         </tr>

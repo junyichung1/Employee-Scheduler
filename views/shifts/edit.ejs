@@ -1,4 +1,4 @@
-
+<%- include('../partials/header') %>
 
 <form action="/shifts/<%=shifts._id%>?_method=PUT" method=POST>
 
@@ -11,3 +11,5 @@
     </label>
     <input type="submit" value="Submit">
 </form>
+
+<%- include('../partials/footer') %>

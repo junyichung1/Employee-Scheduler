@@ -27,7 +27,7 @@ function update(req, res) {
 }
 function edit(req, res) {
     Employee.findById(req.params.id, function(err, employees) {
-        res.render('employees/edit', {employees})
+        res.render('employees/edit', {title: 'Update Employee', employees})
     })
 }
 function create(req, res) {

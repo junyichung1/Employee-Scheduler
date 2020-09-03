@@ -1,14 +1,15 @@
 <%- include('../partials/header') %>
 
-<table>
+<table class="table">
     <tr>
         <th>Week (Choose start of week)</th>
 
     </tr>
     <br>
+    
     <% schedules.forEach(schedule => { %>
-        <tr>
-            <td>
+    <tr>
+            <td class="border">
                 
                 <%= schedule.week %>
             </td>
@@ -16,20 +17,20 @@
                 <td><form action="/schedules/<%=schedule._id%>?_method=DELETE" method=POST><button>X</button></form></td>
         </tr>
         <% }) %>
-    <tr>
-       
-        <form action="/schedules" method="POST">
-        <td> 
-                <label for="date">Start:
-                    <input type="date" name="week">
-                </label>
-            </td>
-            <td>
-                <input type="submit" value="Submit">
-            </td>      
-        </form>
-    </tr>
-    
+        <tr>
+            
+            <form action="/schedules" method="POST">
+                <td> 
+                    <label for="date">Start:
+                        <input type="date" name="week">
+                    </label>
+                </td>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>      
+            </form>
+        </tr>
+        
 </table>
 
 

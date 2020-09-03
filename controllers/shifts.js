@@ -25,7 +25,7 @@ function update(req, res) {
 }
 function edit(req, res) {
     Shift.findById(req.params.id, function(err, shifts) {
-        res.render('shifts/edit', {shifts})
+        res.render('shifts/edit', {title: "Update Shift Times", shifts})
     })
 }
 function newTime(req, res) {
