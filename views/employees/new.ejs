@@ -1,41 +1,44 @@
 <%- include('../partials/header') %>
 
-<h3>Employees</h3>
-<div class="employeebox">
-<table class="table">
-    <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Wage</th>
-    </tr>
-    
-    <% employees.forEach(function(employee){ %>
-      <tr>
 
-          <td class="border"><%= employee.name %></td>
-          <td class="border"><%= employee.position %></td>
-          <td class="border">$<%= employee.wage %></td>
-          <td><a href="/employees/<%= employee._id %>/edit"><button>Edit</button></a></td>
-          <td><form action="/employees/<%=employee.id%>?_method=DELETE" method="POST"><button type="submit">X</button></form></td>
-        </tr>
-        <% }) %>
+<div class="employeebox">
+  <h3>Employees</h3>
+    <table class="table">
+      <tr>
+        <th><u>Name</u></th>
+        <th><u>Position</u></th>
+        <th><u>Wage</u></th>
+      </tr>
       
-    </table>
-  </div>
+      <% employees.forEach(function(employee){ %>
+        <% if (employee.manager._id.equals(user && user._id)) { %>
+          <tr>
+            
+            <td class="border"><%= employee.name %></td>
+            <td class="border"><%= employee.position %></td>
+            <td class="border">$<%= employee.wage %></td>
+            <td><a href="/employees/<%= employee._id %>/edit"><button class="empbutton">Edit</button></a></td>
+            <td><form action="/employees/<%=employee.id%>?_method=DELETE" method="POST"><button class="empbutton" type="submit">X</button></form></td>
+          </tr>
+          <% } %>
+          <% }) %>
+          
+        </table>
+      </div>
 <form action="/employees" method=POST>
-<label for="name">Name
-    <input name="name" type="text">
+<label for="name">Name:
+    <input  class="select"name="name" type="text">
   </label>
-  <label for="position">Position
-    <input name="position" type="text">
+  <label for="position">Position:
+    <input  class="select"name="position" type="text">
   </label>
-  <label for="wage">Wage per Hour
-    <input name="wage" type="number" placeholder="0.00" pattern="^\d*(\.\d{0,2})?$">
+  <label for="wage">Wage per Hour:
+    <input  class="select"name="wage" type="number" placeholder="0.00" pattern="^\d*(\.\d{0,2})?$">
   </label>
-  <input type="submit" value="Submit">
+  <input  class="select"type="submit" value="Submit">
 </form>
 
 
-<a href="/schedules"><button>Back</button></a>
+<a href="/schedules"><button class="select">Back</button></a>
 
 <%- include('../partials/footer') %>

@@ -31,6 +31,7 @@ function edit(req, res) {
     })
 }
 function create(req, res) {
+    req.body.manager = req.user._id;
     const addedEmployee = new Employee(req.body);
     addedEmployee.save(function(err, employee) {
         console.log(employee)

@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h3>Week: <%= schedule.week%></h3>
+<h3>Week: <%= schedule.week.toLocaleDateString() %></h3>
 <table class="table">
     <tr>
         <th>Employee</th>
@@ -69,43 +69,43 @@
         <form action="/schedulize/<%=schedule._id%>?_method=PUT" method=POST>
         <td>
             <label>
-            <select name="employee">
+            <select class="select" name="employee">
                 <%- employees.map(employee => `<option value="${employee._id}">${employee.name}</option>`).join('') %>  
               </select>
             </td>
             <td>
-                <select name="shifts">
+                <select class="select" name="shifts">
                     <% shifts.forEach(shift => { %>
                         <option value="<%= `${shift.startTime} - ${shift.endTime}` %>"><%= `${shift.startTime} - ${shift.endTime}` %> </option>
                         <% }) %>
                     </select>
                 </td>
-                <td><select name="shifts">
+                <td><select class="select" name="shifts">
                     <% shifts.forEach(shift => { %>
                         <option value="<%= `${shift.startTime} - ${shift.endTime}` %>"><%= `${shift.startTime} - ${shift.endTime}` %> </option>
                         <% }) %>
                     </select></td>
-                <td><select name="shifts">
+                <td><select class="select" name="shifts">
                     <% shifts.forEach(shift => { %>
                         <option value="<%= `${shift.startTime} - ${shift.endTime}` %>"><%= `${shift.startTime} - ${shift.endTime}` %> </option>
                         <% }) %>
                     </select></td>
-                <td><select name="shifts">
+                <td><select class="select" name="shifts">
                     <% shifts.forEach(shift => { %>
                         <option value="<%= `${shift.startTime} - ${shift.endTime}` %>"><%= `${shift.startTime} - ${shift.endTime}` %> </option>
                         <% }) %>
                     </select></td>
-                <td><select name="shifts">
+                <td><select class="select" name="shifts">
                     <% shifts.forEach(shift => { %>
                         <option value="<%= `${shift.startTime} - ${shift.endTime}` %>"><%= `${shift.startTime} - ${shift.endTime}` %> </option>
                         <% }) %>
                     </select></td>
-                <td><select name="shifts">
+                <td><select class="select" name="shifts">
                     <% shifts.forEach(shift => { %>
                         <option value="<%= `${shift.startTime} - ${shift.endTime}` %>"><%= `${shift.startTime} - ${shift.endTime}` %> </option>
                         <% }) %>
                     </select></td>
-                <td><select name="shifts">
+                <td><select class="select" name="shifts">
                     <% shifts.forEach(shift => { %>
                         <option value="<%= `${shift.startTime} - ${shift.endTime}` %>"><%= `${shift.startTime} - ${shift.endTime}` %> </option>
                         <% }) %>

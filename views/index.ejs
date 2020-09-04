@@ -1,6 +1,16 @@
 <%- include('./partials/header') %>
-   
-<h4>Please Login through your Google Account to Proceed</h4>
-     
+<div class="indexbox">
+
+    <h4>Please Login through your Google Account to Proceed</h4>
+    
+    <% if (user) { %>
+        <div class="loginButton">
+            
+            <a href="/logout">Log Out</a>
+            <% } else { %>
+                <a href="/auth/google">Login with Google</a>
+                <% } %>
+            </div>
+        </div>   
 
 <%- include('./partials/footer') %>

@@ -3,15 +3,44 @@ body {
   font-family: 'Cinzel', serif;
   background-color: #D6E9F2;
 }
+.indexbox {
+  border: solid 3px #023499;
+  width: 400px;
+  text-align: center;
+  margin: 15% 25% 0 33%;
+  border-radius: .5em;
+}
+.box {
+  margin: 5% 25% 0 33%;
+  text-align: center;
+}
 .table {
-  /* border-collapse: collapse;
-  border: 2.5px solid #023499; */
+  text-align: center;
+  width: 350px;
+  border: solid 3px #023499;
+  border-radius: .5em;
 }
 table th {
   border: 2.5px solid #023499;
+  border-radius: .5em;
+  width: 300px;
 }
 .border {
   border: 2.5px solid #023499;
+  border-radius: .5em;
+}
+.shift {
+  display: flex;
+  padding: 5px;
+  border: solid 3px #023499;
+  border-radius: .5em;
+  justify-content: center;
+  width: 300px;
+  margin: 0 0 0 35%;
+}
+.loginButton {
+  text-align: center;
+  
 }
 .active {
   color: red;
@@ -45,12 +74,12 @@ a {
   color: rgb(15, 15, 15);
 }
 .employeebox {
+  margin: 5% 25% 20px 33%;
+  text-align: center;
+  width: 600px;
+}
 
-}
-.footer {
-  
-  
-}
+
 #footerbar {
   display: flex;
   background-color: #CCFFCB;
@@ -61,4 +90,17 @@ a {
   height: 45px;
   align-items: center;
   justify-content: center;
+}
+
+.employeebox h3 {
+  display: flex;
+  justify-content: center;
+  margin: 0 100px 10px -150px;
+}
+.shiftform {
+  text-align: center;
+  margin-top: 15%;
+}
+.shiftdiv {
+  text-align: center;
 }

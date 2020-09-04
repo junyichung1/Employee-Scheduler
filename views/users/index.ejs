@@ -4,20 +4,20 @@
 <form action="/users/<%= user._id %>?_method=PUT" method="POST">
   <label for="name"
     >Name:
-    <input type="text" name="name" value="<%= user.name %>" />
+    <input class="select" type="text" name="name" value="<%= user.name %>" />
   </label>
   <br />
   <label for="department"
     >Department:
-    <input type="text" name="department" value="<%= user.department %>" />
+    <input class="select" type="text" name="department" value="<%= user.department %>" />
   </label>
   <br />
   <label for="email"
     >Email Address:
-    <input type="text" name="email" value="<%= user.email %>" />
+    <input class="select" type="text" name="email" value="<%= user.email %>" />
   </label>
   <br />
   <br />
-  <input type="submit" value="Update" />
+  <input class="select" type="submit" value="Update" />
 </form>
 <%- include('../partials/footer') %>

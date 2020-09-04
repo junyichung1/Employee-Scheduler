@@ -2,16 +2,16 @@
 <%- include('../partials/header') %>
 
 
-<form action="/employees/<%= employees._id %>?_method=PUT" method=POST>
-    <label for="name">Name
-        <input name="name" type="text" value="<%=employees.name%>">
+<form class ="shiftform" action="/employees/<%= employees._id %>?_method=PUT" method=POST>
+    <label for="name">Name:
+        <input class="empbutton" name="name" type="text" value="<%=employees.name%>">
       </label>
-      <label for="position">Position
-        <input name="position" type="text" value="<%=employees.position %>">
+      <label for="position">Position:
+        <input class="empbutton" name="position" type="text" value="<%=employees.position %>">
       </label>
-      <label for="wage">Wage per Hour
-        <input name="wage" type="number" placeholder="0.00" pattern="^\d*(\.\d{0,2})?$"" value="<%=employees.wage%>">
+      <label for="wage">Wage per Hour:
+        <input class="empbutton" name="wage" type="number" placeholder="0.00" pattern="^\d*(\.\d{0,2})?$"" value="<%=employees.wage%>">
       </label>
-      <input type="submit" value="Update">
+      <input class="empbutton" type="submit" value="Update">
     </form>
 <%- include('../partials/footer') %>

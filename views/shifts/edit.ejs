@@ -1,15 +1,15 @@
 <%- include('../partials/header') %>
 
-<form action="/shifts/<%=shifts._id%>?_method=PUT" method=POST>
+<form class ="shiftform" action="/shifts/<%=shifts._id%>?_method=PUT" method=POST>
 
     <label for="date">Start:
-        <input type="time" name="startTime" value="<%=shifts.startTime%>">
+        <input class="select" type="time" name="startTime" value="<%=shifts.startTime%>">
     </label>
     
     <label for="date">End:
-        <input type="time" name="endTime" value="<%=shifts.endTime%>">
+        <input class="select" type="time" name="endTime" value="<%=shifts.endTime%>">
     </label>
-    <input type="submit" value="Submit">
+    <input class="select" type="submit" value="Submit">
 </form>
 
 <%- include('../partials/footer') %>

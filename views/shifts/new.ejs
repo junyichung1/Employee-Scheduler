@@ -1,30 +1,33 @@
 <%- include('../partials/header') %>
+<div class="shiftdiv">
 
-<h3>Possible Shifts (Input blank times for "OFF")</h3>
-
-<% shifts.forEach(function(shift) { %>
-    <ul>
-        <li><%= `${shift.startTime} - ${shift.endTime}` %>
-            <a href="/shifts/<%=shift._id%>/edit"><button>Edit</button></a>
-            <form action="/shifts/<%=shift._id%>?_method=DELETE" method="POST"><button type="submit">X</button></form>
-        </li>
-    </ul>
-
-<% }) %>
-
-
-<form action="/shifts" method=POST>
-
-    <label for="date">Start:
-        <input type="time" name="startTime">
-    </label>
+    <h3>Possible Shifts (Input blank times for "OFF")</h3>
     
-    <label for="date">End:
-        <input type="time" name="endTime">
-    </label>
-    <input type="submit" value="Submit">
-</form>
-
-
-
-<%- include('../partials/footer') %>
+    <% shifts.forEach(function(shift) { %>
+        <ul>
+            <li class="shift"><%= `${shift.startTime} - ${shift.endTime}` %>
+                <a href="/shifts/<%=shift._id%>/edit"><button class="select">Edit</button></a>
+                <form action="/shifts/<%=shift._id%>?_method=DELETE" method="POST"><button class="select" type="submit">X</button></form>
+            </li>
+        </ul>
+        
+        <% }) %>
+        
+        
+        <form action="/shifts" method=POST>
+            
+            <label for="date">Start:
+                <input class="select" type="time" name="startTime">
+            </label>
+            
+            <label for="date">End:
+                <input class="select" type="time" name="endTime">
+            </label>
+            <input class="select" type="submit" value="Submit">
+        </form>
+        
+    </div>
+        
+        
+        <%- include('../partials/footer') %>
+        
