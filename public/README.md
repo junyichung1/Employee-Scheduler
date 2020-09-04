@@ -18,6 +18,13 @@ Technologies Used: JavaScript, HTML, CSS, imgur, google oauth, zoom, node, expre
 Deployed App on heroku:
 https://junyi-schedulizer.herokuapp.com/
 
+Screenshots:
+<a href="https://imgur.com/Q8yk5Zh"><img src="https://i.imgur.com/Q8yk5Zh.png" title="source: imgur.com" /></a> 
+<a href="https://imgur.com/DYlPGti"><img src="https://i.imgur.com/DYlPGti.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/nm6piXl"><img src="https://i.imgur.com/nm6piXl.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/VeARgwy"><img src="https://i.imgur.com/VeARgwy.png" title="source: imgur.com" /></a>
+
+
 Icebox items include:
 * Allowing users to export to pdf or CSV file
 * Having an admin user role and read only role for employees to directly look up their schedule
