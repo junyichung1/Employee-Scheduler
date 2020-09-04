@@ -12,17 +12,17 @@ Trello board:
 https://trello.com/b/p4yYqimA/project-2
 
 
-Technologies Used: JavaScript, HTML, CSS, imgur, google, zoom, node, express, other middleware
+Technologies Used: JavaScript, HTML, CSS, imgur, google oauth, zoom, node, express, mongoDB, mongoose, other middleware
 
 
 Deployed App on heroku:
 https://junyi-schedulizer.herokuapp.com/
 
 Icebox items include:
-Allowing users to export to pdf or CSV file
-Having an admin user role and read only role for employees to directly look up their schedule
-Display Department on top for the schedule
-Add employee titles
-Show when employees need to take their breaks by
+* Allowing users to export to pdf or CSV file
+* Having an admin user role and read only role for employees to directly look up their schedule
+* Display Department on top for the schedule
+* Add employee titles
+* Show when employees need to take their breaks by
 
 ___
