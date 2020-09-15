@@ -36,16 +36,21 @@
             <td class="border">
                 <% let totalHours = 0 %>
                     <% let total = 0 %>
-                    <% schedule.shifts[idx].forEach(schedule => {%>
-                       <% total += schedule.wage * schedule.hours %>
-                       <% totalHours += schedule.hours %>
-                       <% }) %>
-                       <% max += total %>
-                       <%= `$${total.toFixed(2)} `%>
+                    <% schedule.shifts[idx].forEach(sched => {%>
+                        <% let otWage = sched.wage * 1.5 %>
+                            <% totalHours += sched.hours %>
+                               <% if (totalHours <= 40) { %>
+                                <% total += sched.wage * sched.hours %>
+                            <% } else if (totalHours > 40) { %>
+                                <% total = (totalHours - 40) * otWage + (sched.wage * 40) %> 
+                            <% } %>
+                        <% }) %>
+                        <% max += total %>
+                       <%= `$${total.toFixed(2)}`%>
             </td>
             <td class="border <%= totalHours > 40 ? 'active' : '' %>">
                 <%= totalHours %>
-                
+            
             </td>
             <td><form action="/schedulize/<%=schedule._id%>/employee/<%=idx%>?_method=DELETE" method=POST><button>X</button></form></td>
         </tr>
